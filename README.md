@@ -1,0 +1,2 @@
+
+Interface of logger
