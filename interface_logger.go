@@ -11,5 +11,7 @@ type InterfaceLogger interface {
 	WarnF(format string, args ...interface{})
 	Error(args ...interface{})
 	ErrorF(format string, args ...interface{})
+	ErrorWithStack(args ...interface{})
+	ErrorWithStackF(format string, args ...interface{})
 }
 
