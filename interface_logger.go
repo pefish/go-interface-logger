@@ -16,8 +16,6 @@ type InterfaceLogger interface {
 	WarnF(format string, args ...interface{})
 	Error(args ...interface{})
 	ErrorF(format string, args ...interface{})
-	ErrorWithStack(args ...interface{})
-	ErrorWithStackF(format string, args ...interface{})
 }
 
 type loggerImpl struct {
@@ -65,18 +63,10 @@ func (l *loggerImpl) WarnF(format string, args ...interface{}) {
 }
 
 func (l *loggerImpl) Error(args ...interface{}) {
-	fmt.Printf("[ERROR] %s\n", formatOutput(args...))
-}
-
-func (l *loggerImpl) ErrorF(format string, args ...interface{}) {
-	fmt.Printf("[ERROR] %s\n", fmt.Sprintf(format, args...))
-}
-
-func (l *loggerImpl) ErrorWithStack(args ...interface{}) {
 	fmt.Printf("[ERROR] %s\n%s", formatOutput(args...), string(debug.Stack()))
 }
 
-func (l *loggerImpl) ErrorWithStackF(format string, args ...interface{}) {
+func (l *loggerImpl) ErrorF(format string, args ...interface{}) {
 	fmt.Printf("[ERROR] %s\n%s", fmt.Sprintf(format, args...), string(debug.Stack()))
 }
 
