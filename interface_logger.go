@@ -7,6 +7,7 @@ import (
 
 type InterfaceLogger interface {
 	Close()
+	IsDev() bool
 
 	Debug(args ...interface{})
 	DebugF(format string, args ...interface{})
@@ -27,6 +28,10 @@ var DefaultLogger = &loggerImpl{}
 
 func (l *loggerImpl) Close() {
 
+}
+
+func (l *loggerImpl) IsDev() bool {
+	return true
 }
 
 func formatOutput(args ...interface{}) string {
