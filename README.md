@@ -1,2 +1,4 @@
 
 Interface of logger
+
+**Deprecate**
